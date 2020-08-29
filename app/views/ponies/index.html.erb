@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ponies</h1>
+
+<table id="ponies">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Profession</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @ponies%>
+  </tbody>
+</table>
+
+<br>
+<div id="new-pony">
+  <%= link_to 'New Pony', new_pony_path, remote: true %>
+</div>
+
