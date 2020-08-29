@@ -1,6 +1,17 @@
 <div class="container">
-    this is random text meant for testing purposes only
+    <% @pages.each do |page|%>
+        <h3><%= page.topic %></h3>
+        <p><%= page.content %></p>
+        <p><%= link_to "Destroy", page, method: :delete, data { confirm: 'are you sure' }, :remote => true, :class => "delete"%></p>
+    <% end %>
 </div>
+<h2>create another page</h2>
+<%= form_with( url: '/create', method: 'get') do %>
+    <%= label_tag(:topic, "topic:") %>
+    <%= text_field_tag(:topic) %>
+    <%= submit_tag("submit") %>
+<% end %>
+<br>
 
-<button id="toggle-btn">Hide-content</button>
+<button id="toggle-btn">hide text</button>
 <button id="toggle-color">Change background colour</button>

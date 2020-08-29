@@ -1,14 +1,21 @@
 ready = ->
-    $('#toggle-btn').click -> 
-        $(".container").fadeOut()
-        return
+    button = $('#toggle-btn')
+    button.click -> 
+        if button.html() == "hide text"
+            button.empty().append("show text")
+            $(".container").fadeOut()
+        else
+            #button.empty().append("hide text")
+            $(".container").show()
+    return
 
-change = -> 
-    $("#toggle-color").click ->
-        $(".container").style = "color:red;"
+tester = ->
+    secondButton = $('#toggle-color')
+    secondButton.click ->
+        $(".container").css("color", "red")
         return
 
 $(document).ready ready
 $(document).on 'turbolinks:load', ready
-$(document).ready change
-$(document).on 'turbolinks:load', change
+$(document).ready tester
+$(document).on 'turbolinks:load', tester
